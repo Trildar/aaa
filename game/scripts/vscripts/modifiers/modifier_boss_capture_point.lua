@@ -39,9 +39,9 @@ function modifier_boss_capture_point:StartClockParticle()
 end
 
 function modifier_boss_capture_point:GetColor()
-  local neutralColor = Vector(255, 150, 0)
+  local neutralColor = Vector(229, 187, 94)
   local radiantColor = Vector(0, 162, 255)
-  local direColor = Vector(5, 155, 255)
+  local direColor = Vector(241, 5, 5)
   local endColor
   if self.capturingTeam == DOTA_TEAM_GOODGUYS then
     endColor = radiantColor
