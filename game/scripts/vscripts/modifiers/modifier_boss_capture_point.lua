@@ -55,6 +55,7 @@ end
 
 if IsServer() then
   function modifier_boss_capture_point:OnCreated(keys)
+    self.tier = keys.tier
     self.captureFinishCallback = keys.finishFunction
     self.radius = keys.radius or 300
     self.captureTime = keys.captureTime or 10
@@ -127,6 +128,7 @@ function modifier_boss_capture_point:OnIntervalThink()
 
   self.captureProgress = self.captureProgress + self.thinkInterval
   if self.captureProgress >= self.captureTime then
+    BossAI:RewardBossKill(self.capturingTeam, self.tier)
     -- Point has been captured
     if self.captureFinishCallback then
       self.captureFinishCallback(self.capturingTeam)
